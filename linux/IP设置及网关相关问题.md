@@ -5,12 +5,16 @@
 
 > 重启网关服务:`sudo service network restart`。
 
-> 设置主机名与IP的映射: `sudo vi /etc/hosts` 。
+#### 设置主机名与IP的映射
+>  修改主机名:`sudo vi /etc/sysconfig/network`;
+
+> 设置主机名与IP的映射:`sudo vi /etc/hosts` 。
 
 > 更改虚拟机linux系统的ip地址: `sudo vi /etc/sysconfig/network-scripts/ifcfg-eth0 `(把`ifcfg`开头的几个文件都改一下),
 > 更改完毕后,重启网络服务: `sudo service network restart` 。
 
-`ping www.baidu.com` 提示 `ping: unknown host www.baidu.com` ,但是`ping 8.8.8.8` 能通,可知是dns服务器没配好,
+#### `ping www.baidu.com` 提示 `ping: unknown host www.baidu.com` 
+> 如果`ping 8.8.8.8` 能通,可知是dns服务器没配好,
 执行`sudo vi /etc/resolv.conf`,添加` nameserver 8.8.8.8` 即可。
 
 #### 重启网络服务时,提示`this device is not active` 解决方法:
